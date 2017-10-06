@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox id="vbox" prefHeight="400" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample2.Controller">
+
+    <MenuBar fx:id="menuBar" onKeyPressed="#sayIt">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New" />
+                    <MenuItem text="Open" onAction="#myOpenFile"/>
+                    <MenuItem text="Save" />
+                    <MenuItem text="Save As" />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Exit" />
+                </items>
+            </Menu>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem text="Copy" />
+                    <MenuItem text="Cut" />
+                    <MenuItem text="Paste" />
+                </items>
+            </Menu>
+            <Menu fx:id="toolsMenu" text="Tools">
+                <items>
+                    <MenuItem text="Calculator" />
+                    <Menu mnemonicParsing="false" text="Unspecified Menu">
+                        <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <SeparatorMenuItem mnemonicParsing="false" />
+                            <CheckMenuItem mnemonicParsing="false" text="Unspecified Action" />
+                            <MenuItem mnemonicParsing="false" text="Action 2" />
+                        </items>
+                    </Menu>
+                    <MenuItem text="Cutter" />
+                    <MenuItem text="Color designer" />
+                </items>
+            </Menu>
+            <Menu text="Help">
+                <items>
+                    <MenuItem disable="true" text="Search" />
+                    <MenuItem text="Online Manual" visible="false" />
+                    <SeparatorMenuItem />
+                    <MenuItem onAction="#sayIt" text="About" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <BorderPane prefHeight="200.0" prefWidth="500.0">
+        <right>
+            <VBox alignment="TOP_CENTER" style="-fx-border-style: solid;-fx-border-radius: 5">
+                <Button style="-fx-pref-width: 100"  onAction="#showDialog" text="Log In" BorderPane.alignment="CENTER" />
+                <Button style="-fx-pref-width: 100"  onAction="#showPicture" text="Show selected picture" BorderPane.alignment="CENTER" />
+                <Label onMouseClicked="#alertujUsera"> (na Label) pokaż alert</Label>
+                <TextField fx:id="dirpath" style="-fx-pref-width: 100"/>
+                <Button style="-fx-pref-width: 100"  onAction="#readDir" text="Read directory" BorderPane.alignment="CENTER" />
+
+            </VBox>
+        </right>
+        <center>
+            <Canvas fx:id="mycanvas" height="400" width="400" />
+        </center>
+        <left>
+            <VBox fx:id="leftpanel" alignment="TOP_CENTER" style="-fx-border-style: solid;-fx-border-radius: 5; -fx-pref-width: 130">
+
+            </VBox>
+        </left>
+        <bottom>
+            <HBox alignment="TOP_CENTER">
+                <Button style="-fx-pref-width: 100"  onAction="#previousFile" text="Previous" BorderPane.alignment="CENTER" />
+                <Button style="-fx-pref-width: 100"  onAction="#nextFile" text="Next" BorderPane.alignment="CENTER" />
+            </HBox>
+        </bottom>
+    </BorderPane>
+
+</VBox>
